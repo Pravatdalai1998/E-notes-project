@@ -1,46 +1,44 @@
 package com.Enotes.Enotes_Api_service.entity;
 
-import java.util.List;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.Date;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "category")  // Explicitly specify table name (optional but good practice)
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String name;
-    
 
-    // Constructors
-    public Category() {
-    }
+    private String description;
 
-    public Category(String name) {
-        this.name = name;
-    }
+    @Column(name = "is_active")  // matches your DB column
+    private Boolean isActive;
 
-    // Getters & Setters
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "is_deleted")  // matches your DB column
+    private Boolean isDeleted;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "created_on")  // match DB column name (not createdDate)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
 
-    public String getName() {
-        return name;
-    }
+    @Column(name = "created_by")  // matches your DB column
+    private Integer createdBy;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Column(name = "updated_by")  // matches your DB column
+    private Integer updatedBy;
 
+    @Column(name = "updated_on")  // match DB column name (not updatedDate)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedDate;
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import com.Enotes.Enotes_Api_service.entity.Category;
 import com.Enotes.Enotes_Api_service.repository.Categoryrepository;
@@ -15,14 +16,22 @@ public class CategoryServiceImpl implements Categoryservice {
     @Autowired
     private Categoryrepository categoryrepository;
 
-    @Override
-    public Boolean saveCategory(Category category) {
-        Category savedCategory = categoryrepository.save(category); 
-        return savedCategory != null; 
+@Override
+public Boolean saveCategory(Category category) {
+    category.setIsDeleted(false);
+    category.setCreatedBy(1);
+    Category savedCategory = categoryrepository.save(category); 
+    if (ObjectUtils.isEmpty(savedCategory)) {
+        return false;  // save failed
     }
+    return true;  // save succeeded
+}
+
+
 
     @Override
     public List<Category> getAllCategories() {
-        return categoryrepository.findAll(); 
+        List<Category> categories = categoryrepository.findAll();
+        return categories;
     }
 }
