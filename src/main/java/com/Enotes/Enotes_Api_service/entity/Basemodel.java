@@ -9,9 +9,10 @@ import lombok.Setter;
 @Setter
 @MappedSuperclass
 public class Basemodel {
-     private Boolean inAactive;
-     private Boolean inDeleted;
+     private Boolean isAactive;
+     private Boolean isDeleted;
      private Integer createdon;
+     private Integer createdBy;
      private Date  creatDate;
      private Integer updatedby;
      private Integer updatedon;
