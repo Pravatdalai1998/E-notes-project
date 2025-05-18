@@ -26,9 +26,6 @@ public Boolean saveCategory(Category category) {
     }
     return true;  
 }
-
-
-
     @Override
     public List<Category> getAllCategories() {
         List<Category> categories = categoryrepository.findAll();

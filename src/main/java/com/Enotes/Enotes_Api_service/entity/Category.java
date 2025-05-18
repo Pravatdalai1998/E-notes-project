@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "category")  // Explicitly specify table name (optional but good practice)
+@Table(name = "category")  
 public class Category {
 
     @Id
@@ -21,23 +21,23 @@ public class Category {
 
     private String description;
 
-    @Column(name = "is_active")  // matches your DB column
+    @Column(name = "is_active")  
     private Boolean isActive;
 
-    @Column(name = "is_deleted")  // matches your DB column
+    @Column(name = "is_deleted")  
     private Boolean isDeleted;
 
-    @Column(name = "created_on")  // match DB column name (not createdDate)
+    @Column(name = "created_on")  
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
-    @Column(name = "created_by")  // matches your DB column
+    @Column(name = "created_by")  
     private Integer createdBy;
 
-    @Column(name = "updated_by")  // matches your DB column
+    @Column(name = "updated_by")  
     private Integer updatedBy;
 
-    @Column(name = "updated_on")  // match DB column name (not updatedDate)
+    @Column(name = "updated_on")  
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedDate;
 
