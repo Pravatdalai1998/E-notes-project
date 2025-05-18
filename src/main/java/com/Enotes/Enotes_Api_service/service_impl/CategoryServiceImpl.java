@@ -22,9 +22,9 @@ public Boolean saveCategory(Category category) {
     category.setCreatedBy(1);
     Category savedCategory = categoryrepository.save(category); 
     if (ObjectUtils.isEmpty(savedCategory)) {
-        return false;  // save failed
+        return false;  
     }
-    return true;  // save succeeded
+    return true;  
 }
 
 
