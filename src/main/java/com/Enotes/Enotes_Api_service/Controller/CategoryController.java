@@ -28,9 +28,6 @@ public ResponseEntity<String> saveCategory(@RequestBody Category category) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save category");
     }
 }
-
-
-
     // Get all categories
     @GetMapping("/category")
     public ResponseEntity<List<Category>> getAllCategories() {
